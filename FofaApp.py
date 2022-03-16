@@ -357,6 +357,8 @@ class FofaApp:
     def getcookies(self, ):
         try:
             cookies = self.conn.get('fofa', 'cookies')
+            if not cookies:
+                raise
             cookies = cookies.split('; ')
             cookies_dict = {}
             for c in cookies:
@@ -365,7 +367,6 @@ class FofaApp:
         except:
             logger.error('去到配置文件把cookies加上傻逼')
             exit()
-        # return self.conn.get('fofa','cookies')
 
     def run(self):
         """
