@@ -27,6 +27,7 @@ def deBase64code(strs):
 SYSTEMTYPE = platform.system()
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) + '/'
 OUTPUT_DIR = ROOT_DIR + 'outputs/' + str(time.strftime("%Y-%m-%d", time.localtime(time.time()))) + '/'
+
 if not os.path.exists(OUTPUT_DIR):
     os.makedirs(OUTPUT_DIR)
 # 设置输出保存文件路径

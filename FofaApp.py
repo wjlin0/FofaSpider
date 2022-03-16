@@ -206,7 +206,28 @@ class FofaApp:
             chrome_options.add_argument('--ignore-ssl-errors')
             chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
             chrome_options.add_argument('headless')
-            driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=chrome_options)
+            driverPath = ""
+            driverInstall = Global.ROOT_DIR + "/driver/"
+            if not os.path.exists(driverInstall):
+                os.mkdir(driverInstall)
+            for fpathe, dirs, fs in os.walk(driverInstall):
+                for f in fs:
+                    if 'chromedriver.exe' in os.path.join(fpathe, f):
+                        driverPath = os.path.join(fpathe, f)
+                        break
+            try:
+                if driverPath == "":
+                    driver = webdriver.Chrome(executable_path=ChromeDriverManager(path=driverInstall).install(),
+                                              chrome_options=chrome_options)
+                else:
+                    driver = webdriver.Chrome(executable_path=driverPath,
+                                              chrome_options=chrome_options)
+            except:
+                driver = webdriver.Chrome(executable_path=ChromeDriverManager(path=driverInstall).install(),
+                                          chrome_options=chrome_options)
+
+            # driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=chrome_options)
+
             driver.get(url=self.url)
             driver.delete_all_cookies()
             # print(self.cookies)
@@ -319,6 +340,7 @@ class FofaApp:
         :param requrl: 请求url
         :return: soup的对象
         """
+        i = 0
         while 1:
             logger.info(f"User requesets response url start : {key}-{key1}")
             try:
@@ -346,9 +368,11 @@ class FofaApp:
         if 0 < self.num <= 10:
             self.page = 1
         if self.num >= 10:
-            self.page = self.num / 10
+            self.page = int(self.num / 10)
         if (self.usergroup == "注册用户") & (self.page > 5):
             self.page = 5
+        if self.page > 15:
+            self.page = 15
         return True
 
     def driverclode(self):
