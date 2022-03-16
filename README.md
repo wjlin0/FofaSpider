@@ -7,7 +7,7 @@ FofaApi 是基于Python3.x ，采用 异步协程，selenium无头浏览器，re
 ## 安装
 
 ```
-git clone https://github.com/boy-hack/hack-requests.git
+https://github.com/wjlin0/Fofaapi.git
 pip3 install -i https://mirrors.aliyun.com/pypi/simple/ -r requirements.txt 
 ```
 
