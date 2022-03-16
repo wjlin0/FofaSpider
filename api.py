@@ -21,8 +21,8 @@ def main():
 
 
 @main.command()
-@click.option('-s', '--size', help="fofaapi_size 默认100", default=100)
-@click.option('-p', '--page', help="fofaapi_page 默认第一页", default=1, )
+@click.option('-s', '--size', help="默认100", default=100)
+@click.option('-p', '--page', help="默认第一页", default=1, )
 @click.option('-c', '--code', help="查询条件")
 def FofaApi(code, size, page):
     """
