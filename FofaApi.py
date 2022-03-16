@@ -7,7 +7,6 @@
 # @File     :FofaApi
 import json
 import re
-
 from loguru import logger
 import requests
 

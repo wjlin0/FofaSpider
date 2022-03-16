@@ -5,8 +5,6 @@
 # @Email    :wjlgeren@163.com
 # @Time     :2022-02-26 15:56
 # @File     :fofaapi
-import optparse
-import loguru
 import FofaApi
 import FofaApp
 
@@ -15,7 +13,6 @@ import click
 
 @click.group()
 @click.version_option("v1.0.0")
-# @click.option('--code', help='查询条件')
 def main():
     pass
 
