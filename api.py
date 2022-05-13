@@ -14,7 +14,7 @@ from FofaApi import FofaApiClass
 
 
 @click.group()
-@click.version_option("v1.0.0")
+@click.version_option("v2.0.3")
 def main():
     pass
 
