@@ -7,7 +7,7 @@ FofaApi 2.x 是基于Python3.x ，采用 异步协程，selenium无头浏览器�
 ## 安装
 
 ```
-git clone https://github.com/wjlin0/Fofaapi.git
+git clone -b v2.0.4 https://github.com/wjlin0/Fofaapi.git
 pip3 install -i https://mirrors.aliyun.com/pypi/simple/ -r requirements.txt 
 ```
 
