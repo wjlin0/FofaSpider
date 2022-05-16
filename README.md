@@ -19,7 +19,7 @@ cd Fofaapi && api.exe --version # output: api.exe, version v3.0.4
 
 
 
-1.使用fofa的api 则需要到`./config/config.ini` 中配置 `fofa_email , fofa_key`，例如
+1.使用fofa的api 则需要到`config.ini` 中配置 `fofa_email , fofa_key`，例如
 
 ```
 fofa_email = your_email
