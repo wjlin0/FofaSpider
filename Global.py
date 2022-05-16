@@ -7,7 +7,6 @@
 # @File     :Global.py
 import base64
 import os
-import platform
 import sys
 from configparser import RawConfigParser
 
@@ -37,9 +36,6 @@ if not os.path.exists(CONFIG_PATH):
 # 获取配置文件的对象
 conn = RawConfigParser()
 conn.read(CONFIG_PATH, encoding="utf-8")
-
-
-
 
 
 def enBase64code(strs):
