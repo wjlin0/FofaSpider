@@ -69,7 +69,7 @@ def getUrlIp(soup, filename):
                 f.writelines(ips)
             if urls:
                 f.writelines(urls)
-        return True
+        return len(ips)+len(urls)
     except Exception as e:
         logs.error(e)
         return False
@@ -116,7 +116,7 @@ def futureThree(OK, maxWorkers, cookies, headers, reqUrl, page, reqCode, fileNam
     :param timeout: 延时
     :return: 成功请求多少页
     """
-    i = 0
+    num = 0
     if OK:
         reqUrlList = [reqUrl + f"&page={pa + 1}&page_size=10" for pa in
                       range(int(page))]
@@ -127,12 +127,14 @@ def futureThree(OK, maxWorkers, cookies, headers, reqUrl, page, reqCode, fileNam
         futures = [pool.submit(getReq, url, cookies, headers, timeout) for url in reqUrlList]
 
         for future in as_completed(futures):
-            if not future.result():
+            a = future.result()
+            b = getUrlIp(soup=future.result(), filename=fileName)
+            if not a:
                 continue
-            if not getUrlIp(soup=future.result(), filename=fileName):
+            if not b:
                 continue
-            i += 1
-    return i
+            num = num + b
+    return num
 
 
 def getCityUrls(soup):
@@ -451,6 +453,7 @@ class FofaApp:
             for key, value in self.href.items():
                 i = 1
                 j = 1
+                num = 0
                 for key1, value1 in value.items():
                     reqUrl = self.url + value1
                     soup = self.getRequestSoup(reqUrl=reqUrl)
@@ -462,9 +465,10 @@ class FofaApp:
                                         cookies=self.cookies,
                                         headers=self.headers, reqCode=self.code, fileName=self.filename,
                                         timeout=self.timeout)
-                    logs.success(key + "-" + key1 + " 请求完成,一共获取大约" + str(10 * times) + "条")
+                    num = num + times
                     i += 1
                     if i >= 5 * j:
                         time.sleep(5)
                         j += 1
-
+                    logs.success(key + "-" + key1 + " 请求完成,一共获取大约" + str(times) + "条")
+                logs.success(key + " 请求完成,一共获取大约" + str(num) + "条")
