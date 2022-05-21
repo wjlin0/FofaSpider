@@ -9,7 +9,7 @@ FofaApi3.x 是基于Python3.x ，采用 多线程，selenium无头浏览器，re
 ## 安装
 
 ```
-git clone -b v3.0.4 https://github.com/wjlin0/Fofaapi.git
+git clone -b v3.0.5 https://github.com/wjlin0/Fofaapi.git
 cd Fofaapi && api.exe --version # output: api.exe, version v3.0.4
 ```
 
@@ -77,5 +77,7 @@ maxWorkers 线程个数默认3个 若机型较差可降低线程个数，防止�
     2. 修复输出城市获取条数不精确
     3. 新增输出国家获取总条数
     4. 源码不开源
+  v3.0.5 - 2022-05-21
+    1. 解决当tag未出现href时，出现报错导致无法继续进行
 ``` 
          
