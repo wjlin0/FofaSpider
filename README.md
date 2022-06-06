@@ -9,7 +9,7 @@ FofaApi3.x 是基于Python3.x ，采用 多线程，selenium无头浏览器，re
 ## 安装
 
 ```
-git clone -b v3.0.4 https://github.com/wjlin0/Fofaapi.git
+git clone -b v3.0.5 https://github.com/wjlin0/Fofaapi.git
 cd Fofaapi && api.exe --version # output: api.exe, version v3.0.4
 ```
 
