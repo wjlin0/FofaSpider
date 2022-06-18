@@ -9,8 +9,8 @@ FofaApi3.x 是基于Python3.x ，采用 多线程，selenium无头浏览器，re
 ## 安装
 
 ```
-git clone -b v3.0.5 https://github.com/wjlin0/Fofaapi.git
-cd Fofaapi && api.exe --version # output: api.exe, version v3.0.4
+git clone -b v3.0.6 https://github.com/wjlin0/Fofaapi.git
+cd Fofaapi && api.exe --version # output: api.exe, version v3.0.6
 ```
 
 ## 使用
@@ -21,7 +21,7 @@ cd Fofaapi && api.exe --version # output: api.exe, version v3.0.4
 
 1.使用fofa的api 则需要到`config.ini` 中配置 `fofa_email , fofa_key`，例如
 
-```
+```text
 fofa_email = your_email
 fofa_key = your_key
 ```
@@ -68,8 +68,6 @@ maxWorkers 线程个数默认3个 若机型较差可降低线程个数，防止�
 
 
 
-电脑中 要有 chrome浏览器
-
 ## 更新
 ```text
   v3.0.4
@@ -80,6 +78,11 @@ maxWorkers 线程个数默认3个 若机型较差可降低线程个数，防止�
   v3.0.5 - 2022-05-21
     1. 解决当tag未出现href时，出现报错导致无法继续进行
     2. 解决ctrl + c 无法正常结束
-    2. 更新IP收集异常
+    3. 更新IP收集异常
+  v3.0.6 - 2022-06-18
+    1. 解决fofa更新个人主页apikey的位置导致程序无法正常启动
+    2. 添加 fofaapp output 参数
+    3. 配置文件 更新结构 
+    4. 新增配置文件 默认配置
 ``` 
          
