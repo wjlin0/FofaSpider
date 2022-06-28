@@ -1,0 +1,12 @@
+fofaSpider:
+  size: 20
+  page: 30
+  flag:
+  worker: 2
+  timeout: 1.2 # 暂时无用
+  output:
+  cookies:
+  code:
+  csv:
+  json:
+  config:
