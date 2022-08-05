@@ -1,4 +1,8 @@
+## **更新**
+GUI出来大家快去看啊
+[https://github.com/wjlin0/FofaSpider_GUI](https://github.com/wjlin0/FofaSpider_GUI)
 ## **FofaApi**
+
 
 FofaApi3.x 是基于Python3.x ，采用 多线程，selenium无头浏览器，requests 等多项技术开发而成的爬虫脚本。提取关键信息
 ## **安装**
